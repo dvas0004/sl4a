@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="file:///sdcard/sl4a/scripts/daveTest/css/bootstrap.min.css" />
+ 	<script src="file:///sdcard/sl4a/scripts/daveTest/js/bootstrap.min.js"></script>
+	
+	<script>
+            var droid = new Android();
+
+	    droid.registerCallback('bluetoothOut', function(e) {
+                    document.getElementById('output').innerHTML = e.data;
+                });
+        </script>
+
+    </head>
+ 
+    <body>
+        <h1>Hello World</h1>
+        with SL4a Webviews<hr>
+		<btn class="btn btn-primary" onclick="droid.eventPost('sayHi', 'Hi dude!')">Say Hi!</btn>
+	<hr>
+		<btn class="btn btn-primary" onclick="droid.eventPost('bluetooth', '')">Enable Bluetooth</btn>
+	<hr>
+		<btn class="btn btn-primary" onclick="droid.eventPost('kill', '')">BYE</btn>
+	<hr>
+	<h3>Here be bluetooth output (if enabled)</h3>
+	<div id="output"></div>
+    </body>
+</html>
